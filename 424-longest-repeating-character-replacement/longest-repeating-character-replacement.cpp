@@ -12,13 +12,15 @@ public:
             for (auto &p : freq) {
                 maxValue = max(maxValue, p.second);
             }
-            if((right-left+1-maxValue)<=k){
-                result=max(result,right-left+1);
-            }
-            else{
+            while ((right - left + 1) - maxValue > k) {
                 freq[s[left]]--;
                 left++;
+                maxValue = 0;
+                for (auto &p : freq) {
+                    maxValue = max(maxValue, p.second);
+                }
             }
+            result = max(result, right - left + 1);
         }
         return result;
     }
