@@ -11,6 +11,7 @@ public:
             return;
         }
         for(int i=index;i<candidates.size();i++){
+            if(i>index && candidates[i]==candidates[i-1]) continue;
             current.push_back(candidates[i]);
             backtrack(candidates,i,target-candidates[i]);
             current.pop_back();
