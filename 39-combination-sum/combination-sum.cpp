@@ -5,6 +5,7 @@ public:
     void backtrack(vector<int>&candidates,int index,int target){
         if(target==0){
             res.push_back(current);
+            return;
         }
         if(target<0){
             return;
